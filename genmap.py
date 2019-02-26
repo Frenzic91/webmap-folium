@@ -22,7 +22,7 @@ map = folium.Map(location=(38.58, -99.09), zoom_start=6)
 
 fg = folium.FeatureGroup(name="MapLayer1")
 for lat, lon, elev in zip(latitudes, longitudes, elevations):
-    fg.add_child(folium.Marker(location=(lat, lon), popup=folium.Popup(html % elev), icon=folium.Icon(color=color_producer(elev))))
+    fg.add_child(folium.CircleMarker(location=(lat, lon), tooltip=folium.Tooltip(html % elev), color=color_producer(elev), fill_color=color_producer(elev)))
 
 map.add_child(fg)
 map.save("webmap1.html")
